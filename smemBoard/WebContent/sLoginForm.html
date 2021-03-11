@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="EUC-KR">
+		<title>로그인</title>
+		<script type="text/javascript">
+			console.log('로그인페이지 script 시작!');
+			
+			function loginCheck(){
+				alert('로그인 빈칸체크!\nid:' + document.getElementById('idVal').value 
+									+ ', pw:' + document.getElementById('pwVal').value);
+				
+				if(!document.getElementById('idVal').value){
+					alert('아이디를 입력해주세요');
+					document.getElementById('idVal').focus();
+					return;
+				}
+				if(!document.getElementById('pwVal').value){
+					alert('비밀번호를 입력해주세요');
+					document.getElementById('pwVal').focus();
+					return;
+				}
+				
+				document.loginForm.action="/sLogin.jsp";
+				document.loginForm.submit();
+				console.log('빈칸체크 통과');
+			}// end of blankCheck()
+			
+		</script>
+	</head>
+	<body>
+		로그인페이지
+	
+		<!-- 로그인 폼 -->
+		<form name="loginForm"
+			  method="post">
+			<table>
+				<tr>
+					<td>ID</td>
+					<td><input type="text" id="idVal" name="ssid"></td>
+					<td rowspan="2"><input type="button" id="login" value="로그인" onclick="loginCheck()"></td>
+				</tr>
+				<tr>
+					<td>PW</td>
+					<td><input type="password" id="pwVal" name="spw"></td>
+				</tr>
+			</table>
+			<input type="button" id="" value="회원가입">
+			<input type="button" id="" value="회원관리">
+		</form>
+	</body>
+</html>
