@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="EUC-KR">
+		<title>회원가입</title>
+		<script type="text/javascript">
+			console.log("회원가입 페이지 script 시작!");
+			
+			// 빈칸체크 및 가입하기 버튼 클릭
+			function joinCheck(){
+				console.log('가입하기 버튼 클릭!');
+				
+				// 빈칸체크
+				console.log('id:' + document.getElementById('idVal').value);
+				if(!document.getElementById('idVal').value){
+					alert('id를 입력해주세요!');
+					document.getElementById('idVal').focus();
+					return;
+				}// end of if
+				console.log('pw:' + document.getElementById('pwVal').value);
+				if(!document.getElementById('pwVal').value){
+					alert('pw를 입력해주세요!');
+					document.getElementById('pwVal').focus();
+					return;
+				}// end of if
+				console.log('이름:' + document.getElementById('nameVal').value);
+				if(!document.getElementById('nameVal').value){
+					alert('이름을 입력해주세요!');
+					document.getElementById('nameVal').focus();
+					return;
+				}// end of if
+				console.log('생년월일:' + document.getElementById('birthVal').value);
+				if(!document.getElementById('birthVal').value){
+					alert('생년월일을 입력해주세요!');
+					document.getElementById('birthVal').focus();
+					return;
+				}// end of if
+				for(var i=0;i<document.getElementsByName('sgender').length;i++){
+					if(document.getElementsByName('sgender')[i].checked){
+						console.log('성별:' + document.getElementsByName('sgender')[i].value);
+					}// end of if
+				}// end of for
+				console.log('연락처:' + document.getElementById('hpVal').value);
+				if(!document.getElementById('hpVal').value){
+					alert('연락처를 입력해주세요!');
+					document.getElementById('hpVal').focus();
+					return;
+				}// end of if
+				
+				console.log('빈칸체크 통과');
+				// jsp로 폼데이터 이동
+				document.joinForm.action="/sJoin.jsp";
+				document.joinForm.submit();
+			}// end of click_btn
+			
+			
+		</script>
+	</head>
+	<body>
+		회원가입 페이지
+		<form name="joinForm"
+			  method="post">
+			<table border="1">
+				<tr>
+					<td>*id</td>
+					<td><input type="text" id="idVal" name="ssid"></td>
+				</tr>
+				<tr>
+					<td>*pw</td>
+					<td><input type="password" id="pwVal" name="spw"></td>
+				</tr>
+				<tr>
+					<td>*이름</td>
+					<td><input type="text" id="nameVal" name="sname"></td>
+				</tr>
+				<tr>
+					<td>*생년월일</td>
+					<td><input type="text" id="birthVal" name="sbirth" placeholder="19950101"></td>
+				</tr>
+				<tr>
+					<td>성별</td>
+					<td>
+						<input type="radio" id="" name="sgender" value="M">남자 
+						<input type="radio" id="" name="sgender" value="F">여자
+					</td>
+				</tr>
+				<tr>
+					<td>*연락처</td>
+					<td><input type="text" id="hpVal" name="shp" placeholder="01012345678"></td>
+				</tr>
+				<tr>
+					<td>메일</td>
+					<td><input type="text" name="smail" placeholder="example@gmail.com"></td>
+				</tr>
+				<tr>
+					<td>우편번호</td>
+					<td><input type="text" name="spost" placeholder="01234"></td>
+				</tr>
+				<tr>
+					<td>주소</td>
+					<td><input type="text" name="saddr"></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="button" value="가입하기" onclick="joinCheck()"></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

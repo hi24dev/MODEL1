@@ -5,10 +5,13 @@
 <%@ page import="pattern.practice2.sjhmem.vo.SmemberVO" %>
 <%@ page import="java.util.ArrayList" %>
 <%
+	request.setCharacterEncoding("EUC-KR");
+%>
+<%
 	// 데이터 가져오기 - getParameter("name")
 	String ssid = request.getParameter("ssid");
 	String spw = request.getParameter("spw");
-	System.out.println("로그인 데이터확인:" + ssid + ", " + spw);
+	System.out.println("로그인 데이터확인:" + ssid + "," + spw);
 	
 	// DAO, DAOImple 객체화
 	SmemberDAO smdao = new SmemberDAOImpl();
@@ -19,7 +22,7 @@
 	svo.setSpw(spw);
 	
 	ArrayList<SmemberVO> loginSmemLogin = smdao.loginSmember(svo);
-	System.out.println("test : " + loginSmemLogin.size());
+	System.out.println("test:" + loginSmemLogin.size());
 	
 	
 	if(loginSmemLogin.size()==1){

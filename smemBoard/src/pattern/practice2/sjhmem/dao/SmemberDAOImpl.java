@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import pattern.practice2.sjhmem.common.SjhChaebun;
 import pattern.practice2.sjhmem.common.SjhConnProperty;
 import pattern.practice2.sjhmem.sql.SjhSqlQueryMap;
 import pattern.practice2.sjhmem.vo.SmemberVO;
@@ -62,6 +63,55 @@ public class SmemberDAOImpl implements SmemberDAO {
 		return aList;
 	} // end of login
 
+
+	// 회원가입(insert)
+	@Override
+	public Boolean insertSmember(SmemberVO _smvo) {
+		System.out.println("[log] 다오임플 insertSmember 함수 호출!"
+									+ "\n데이터확인 >>> _smvo.getSsid():" + _smvo.getSsid());
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		Boolean insertBool = false;
+		
+		//db연결
+		try {
+			con = SjhConnProperty.getConnection();
+			pstmt = con.prepareStatement(SjhSqlQueryMap.getInsertSmemberQuery());
+			
+			// 채번
+			String sno = SjhChaebun.chaebunMethod("member");
+			pstmt.setString(1, sno);
+			pstmt.setString(2, _smvo.getSsid());
+			pstmt.setString(3, _smvo.getSpw());
+			pstmt.setString(4, _smvo.getSname());
+			pstmt.setString(5, _smvo.getSbirth());
+			pstmt.setString(6, _smvo.getSgender());
+			pstmt.setString(7, _smvo.getShp());
+			pstmt.setString(8, _smvo.getSmail());
+			pstmt.setString(9, _smvo.getSpost());
+			pstmt.setString(10, _smvo.getSaddr());
+			
+			int updateInt = pstmt.executeUpdate();
+			System.out.println("updateInt:" + updateInt);
+			
+			// int to boolean 형변환
+			if(updateInt==1){
+				insertBool = true;
+			}// end of if
+			
+			//db연결종료
+			SjhConnProperty.conClose(con, pstmt);
+		} catch (Exception e) {
+			System.out.println("회원가입 db연결 에러 >>> " + e.getMessage());
+		} finally {
+			//db연결종료
+			SjhConnProperty.conClose(con, pstmt);
+		}// end of try-catch-finally
+		
+		System.out.println("insertBool:" + insertBool);
+		return insertBool;
+	}// end of insertSmember()
+	
 	
 	
 }// end of SmemberDAOImpl

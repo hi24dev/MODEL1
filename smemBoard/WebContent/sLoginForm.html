@@ -6,8 +6,9 @@
 		<script type="text/javascript">
 			console.log('로그인페이지 script 시작!');
 			
+			// 로그인 및 빈칸체크
 			function loginCheck(){
-				alert('로그인 빈칸체크!\nid:' + document.getElementById('idVal').value 
+				console.log('로그인 빈칸체크!\nid:' + document.getElementById('idVal').value 
 									+ ', pw:' + document.getElementById('pwVal').value);
 				
 				if(!document.getElementById('idVal').value){
@@ -34,7 +35,7 @@
 		<!-- 로그인 폼 -->
 		<form name="loginForm"
 			  method="post">
-			<table>
+			<table border="1">
 				<tr>
 					<td>ID</td>
 					<td><input type="text" id="idVal" name="ssid"></td>
@@ -45,8 +46,8 @@
 					<td><input type="password" id="pwVal" name="spw"></td>
 				</tr>
 			</table>
-			<input type="button" id="" value="회원가입">
-			<input type="button" id="" value="회원관리">
+			<a href="/sJoinForm.html">회원가입</a>
+			<a href="">회원목록</a>
 		</form>
 	</body>
 </html>
