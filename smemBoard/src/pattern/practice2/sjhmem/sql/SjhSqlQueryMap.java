@@ -63,4 +63,54 @@ public abstract class SjhSqlQueryMap {
 		System.out.println("[log] SjhSqlQueryMap 회원가입 쿼리 함수 끝");
 		return strResult;
 	}// end of 회원가입
+	
+	// 전체회원조회 쿼리
+	public static String getSelectAllSmemberQuery(){
+		System.out.println("[log] SjhSqlQueryMap 전체회원조회 쿼리 함수 시작");
+		
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT							");
+		sbf.append("	 S.SNO          SNO			");
+		sbf.append("	,S.SSID         SSID		");
+		sbf.append("	,S.SNAME        SNAME		");
+		sbf.append("	,S.SBIRTH       SBIRTH		");
+		sbf.append("	,S.SGENDER      SGENDER		");
+		sbf.append("	,S.SHP          SHP			");
+		sbf.append("	,S.SMAIL        SMAIL		");
+		sbf.append("	,S.SPOST        SPOST		");
+		sbf.append("	,S.SADDR        SADDR		");
+		sbf.append("FROM SMEM_INFO  S				");
+		sbf.append("WHERE S.SDELETEYN = 'N'			");
+		sbf.append("ORDER BY S.SNO					");
+
+		String resultStr = sbf.toString();
+		return resultStr;
+	}// end of 전체회원조회쿼리
+	
+	// 회원검색 쿼리
+	public static String getSearchSmemberQuery(){
+		
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("SELECT							");
+		sbf.append("	 S.SNO          SNO			");
+		sbf.append("	,S.SSID         SSID		");
+		sbf.append("	,S.SPW          SPW			");
+		sbf.append("	,S.SNAME        SNAME		");
+		sbf.append("	,S.SBIRTH       SBIRTH		");
+		sbf.append("	,S.SGENDER      SGENDER		");
+		sbf.append("	,S.SHP          SHP			");
+		sbf.append("	,S.SMAIL        SMAIL		");
+		sbf.append("	,S.SPOST        SPOST		");
+		sbf.append("	,S.SADDR        SADDR		");
+		sbf.append("	,TO_CHAR(S.SINSERTDATE,'YYYY-MM-DD')   SINSERTDATE	");
+		sbf.append("	,TO_CHAR(S.SUPDATEDATE,'YYYY-MM-DD')   SUPDATEDATE	");
+		sbf.append("FROM SMEM_INFO  S				");
+		sbf.append("WHERE S.SNO = ?					");
+		sbf.append("AND S.SDELETEYN = 'N'			");
+		sbf.append("ORDER BY S.SNO					");
+
+		String resultStr = sbf.toString();
+		return resultStr;
+	}// end of 회원검색쿼리
+	
 }// end of SjhSqlQueryMap

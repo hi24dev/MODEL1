@@ -10,4 +10,9 @@ public interface SmemberDAO {
 	public ArrayList<SmemberVO> loginSmember(SmemberVO _smvo);
 	// 회원가입 insert
 	public Boolean insertSmember(SmemberVO _smvo);
+	// 전체회원 selectAll
+	public ArrayList<SmemberVO> selectAllSmember();
+	// 회원검색 search
+	public ArrayList<SmemberVO> searchSmember(SmemberVO _smvo);
+	
 }// end of SmemberDAO

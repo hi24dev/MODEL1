@@ -12,8 +12,8 @@ public abstract class SjhChaebun {
 	private static final String CHAEBUN_M = "S";
 	
 	
-	public static String chaebunMethod(String idfy){
-		System.out.println("[log] SjhChaebun.chaebunMethod() 함수 호출! >>> idfy:" + idfy);
+	public static String chaebunMethod(){
+		System.out.println("[log] SjhChaebun.chaebunMethod() 함수 호출!");
 		
 		// 회원채번 S 20201112 0000
 		String num = "";
@@ -30,7 +30,7 @@ public abstract class SjhChaebun {
 			System.out.println("[log] db연결!");	
 			
 			//분기
-			if(idfy=="member"){
+
 				pstmt = con.prepareStatement(SjhSqlQueryMap.SMEMBER_CHAEBUN);				
 				rsRs = pstmt.executeQuery();
 				
@@ -41,7 +41,6 @@ public abstract class SjhChaebun {
 					}// end of while
 				}// end of if			
 //			System.out.println("snoVal:" + snoVal);
-			}// end of if
 					
 			//db종료
 			SjhConnProperty.conClose(con, pstmt, rsRs);
@@ -53,10 +52,8 @@ public abstract class SjhChaebun {
 			SjhConnProperty.conClose(con, pstmt, rsRs);
 			System.out.println("[log] db연결 종료");
 		}// end of try catch finally
-		
-		
+			
 		// 0001
-
 		for(int i=num.length();i<4;i++){
 			num = "0" + num;
 		}// end of for
@@ -69,9 +66,7 @@ public abstract class SjhChaebun {
 		date = sdf.format(d);
 //		System.out.println("date:" + date);
 		
-		if(idfy=="member"){
 			chaebunVal = CHAEBUN_M + date + num;			
-		}// end of if
 		
 		System.out.println("[log] SjhChaebun.chaebunMethod() 함수 끝!");
 		return chaebunVal;

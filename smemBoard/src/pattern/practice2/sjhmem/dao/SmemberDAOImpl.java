@@ -29,7 +29,6 @@ public class SmemberDAOImpl implements SmemberDAO {
 			con = SjhConnProperty.getConnection();
 			System.out.println("[log] db연결 성공");
 			pstmt = con.prepareStatement(SjhSqlQueryMap.getLoginQuery());
-			System.out.println("체크!!!!!!!!");
 			pstmt.setString(1, _smvo.getSsid());
 			pstmt.setString(2, _smvo.getSpw());
 			rsRs = pstmt.executeQuery();
@@ -63,7 +62,6 @@ public class SmemberDAOImpl implements SmemberDAO {
 		return aList;
 	} // end of login
 
-
 	// 회원가입(insert)
 	@Override
 	public Boolean insertSmember(SmemberVO _smvo) {
@@ -79,7 +77,7 @@ public class SmemberDAOImpl implements SmemberDAO {
 			pstmt = con.prepareStatement(SjhSqlQueryMap.getInsertSmemberQuery());
 			
 			// 채번
-			String sno = SjhChaebun.chaebunMethod("member");
+			String sno = SjhChaebun.chaebunMethod();
 			pstmt.setString(1, sno);
 			pstmt.setString(2, _smvo.getSsid());
 			pstmt.setString(3, _smvo.getSpw());
@@ -112,6 +110,115 @@ public class SmemberDAOImpl implements SmemberDAO {
 		return insertBool;
 	}// end of insertSmember()
 	
+	// 전체회원(selectAll)
+	@Override
+	public ArrayList<SmemberVO> selectAllSmember(){
+		System.out.println("[log] SmemberDAOImpl 전체회원보기 함수 호출!");
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rsRs = null;
+		ArrayList<SmemberVO> array = null;
+		SmemberVO svo = null;
+		
+		try{
+			//db연결
+			con = SjhConnProperty.getConnection();
+			System.out.println("[log] 전체회원조회 db연결 성공!");
+			pstmt = con.prepareStatement(SjhSqlQueryMap.getSelectAllSmemberQuery());
+			rsRs = pstmt.executeQuery();
+			
+			// null체크
+			if(rsRs!=null){
+				array = new ArrayList<SmemberVO>();
+				while(rsRs.next()){
+					svo = new SmemberVO();
+					svo.setSno(rsRs.getString("sno"));
+					svo.setSsid(rsRs.getString("ssid"));
+					svo.setSname(rsRs.getString("sname"));
+					svo.setSbirth(rsRs.getString("sbirth"));
+					svo.setSgender(rsRs.getString("sgender"));
+					svo.setShp(rsRs.getString("shp"));
+					svo.setSmail(rsRs.getString("smail"));
+					svo.setSpost(rsRs.getString("spost"));
+					svo.setSaddr(rsRs.getString("saddr"));
+					array.add(svo);
+				}// end of while
+			}else{
+				System.out.println("rsRs가 null");
+			}// end of if
+			
+			System.out.println("데이터확인 >>> array 사이즈:" + array.size());
+			//db연결 종료
+			SjhConnProperty.conClose(con, pstmt, rsRs);
+			System.out.println("[log] db연결종료");
+		}catch(Exception e){
+			System.out.println("[log] 전체회원조회 db연결 에러 >>> " + e.getMessage());
+		}finally{
+			//db연결 종료
+			SjhConnProperty.conClose(con, pstmt, rsRs);
+			System.out.println("[log] db연결종료");
+		}// end of try-catch-finally
+		
+		System.out.println("[log] SmemberDAOImpl 전체회원보기 함수 종료!");
+		return array;
+	}// end of selectAllSmember()
+
+	// 회원검색(search)
+	@Override
+	// 회원검색 search
+	public ArrayList<SmemberVO> searchSmember(SmemberVO _smvo){
+		System.out.println("[log]다오임플 searchSmember함수 호출 성공 >>> 데이터확인 sno:" + _smvo.getSno());
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rsRs = null;
+		ArrayList<SmemberVO> searchArray = null;
+		SmemberVO svo = null;
+		
+		try{
+			con = SjhConnProperty.getConnection();
+			pstmt = con.prepareStatement(SjhSqlQueryMap.getSearchSmemberQuery());
+			pstmt.setString(1, _smvo.getSno());
+			rsRs = pstmt.executeQuery();
+			
+			// null체크
+			if(rsRs!=null){
+				searchArray = new ArrayList<SmemberVO>();
+				while(rsRs.next()){
+					svo = new SmemberVO();
+					svo.setSno(rsRs.getString("sno"));
+					svo.setSsid(rsRs.getString("ssid"));
+					svo.setSpw(rsRs.getString("spw"));
+					svo.setSname(rsRs.getString("sname"));
+					svo.setSbirth(rsRs.getString("sbirth"));
+					svo.setSgender(rsRs.getString("sgender"));
+					svo.setShp(rsRs.getString("shp"));
+					svo.setSmail(rsRs.getString("smail"));
+					svo.setSpost(rsRs.getString("spost"));
+					svo.setSaddr(rsRs.getString("saddr"));
+					svo.setSinsertdate(rsRs.getString("sinsertdate"));
+					svo.setSupdatedate(rsRs.getString("supdatedate"));
+					searchArray.add(svo);
+				}// end of while
+			}else{
+				System.out.println("searchSmember의 rsRs가 널");
+			}// end of if-else
+			
+			// db연결종료
+			SjhConnProperty.conClose(con, pstmt, rsRs);
+			System.out.println("[log]회원검색 db연결종료");
+		}catch(Exception e){
+			System.out.println("[log]회원검색 db연결 에러 >>> " + e.getMessage());
+		}finally{
+			// db연결종료
+			SjhConnProperty.conClose(con, pstmt, rsRs);
+			System.out.println("[log]회원검색 db연결종료");
+		}// end of try-catch-finally
+		
+		System.out.println("[log]다오임플 searchSmember함수 종료");
+		return searchArray;
+	}// end of 회원검색
 	
 	
 }// end of SmemberDAOImpl
