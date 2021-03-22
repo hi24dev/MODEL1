@@ -112,5 +112,44 @@ public abstract class SjhSqlQueryMap {
 		String resultStr = sbf.toString();
 		return resultStr;
 	}// end of È¸¿ø°Ë»öÄõ¸®
-	
+
+	// È¸¿øÁ¤º¸¼öÁ¤ Äõ¸®
+	public static String getUpdateSmemberQuery(){
+		System.out.println("[log]È¸¿øÁ¤º¸¼öÁ¤Äõ¸®");
+		
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("UPDATE SMEM_INFO    S			");
+		sbf.append("SET								");
+		sbf.append("	 S.SPW = ?					");
+		sbf.append("	,S.SNAME = ?				");
+		sbf.append("    ,S.SBIRTH = ?				");
+		sbf.append("    ,S.SGENDER = ?				");
+		sbf.append("    ,S.SHP = ?					");
+		sbf.append("    ,S.SMAIL = ?				");
+		sbf.append("    ,S.SPOST = ?				");
+		sbf.append("    ,S.SADDR = ?				");
+		sbf.append("    ,S.SUPDATEDATE = SYSDATE	");
+		sbf.append("WHERE S.SDELETEYN = 'N'			");
+		sbf.append("AND   S.SNO = ?					");	
+		
+		String resultStr = sbf.toString();
+		return resultStr;
+	}// end of È¸¿øÁ¤º¸¼öÁ¤Äõ¸®
+
+	// È¸¿øÅ»Åð Äõ¸®
+	public static String getDeleteSmemberQuery(){
+		System.out.println("[log]È¸¿øÅ»ÅðÄõ¸®");
+		
+		StringBuffer sbf = new StringBuffer();
+		sbf.append("UPDATE SMEM_INFO    S			");
+		sbf.append("SET								");
+		sbf.append("	 S.SUPDATEDATE = SYSDATE	");
+		sbf.append("	,S.SDELETEYN = 'Y'			");
+		sbf.append("WHERE S.SDELETEYN = 'N'			");
+		sbf.append("AND   S.SNO = ?					");	
+		
+		String resultStr = sbf.toString();
+		return resultStr;
+	}// end of È¸¿øÅ»ÅðÄõ¸®
+
 }// end of SjhSqlQueryMap

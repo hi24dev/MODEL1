@@ -220,5 +220,82 @@ public class SmemberDAOImpl implements SmemberDAO {
 		return searchArray;
 	}// end of 회원검색
 	
-	
+	// 회원정보수정(update)
+	@Override
+	public Boolean updateSmember(SmemberVO _smvo){
+		System.out.println("[log]다오임플 updateSmember 함수 시작 >>>> 데이터확인 _smvo.getSno():" + _smvo.getSno());
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		Boolean updateBool = false;
+		int updateInt = 0;
+		
+		try{
+			con = SjhConnProperty.getConnection();
+			pstmt = con.prepareStatement(SjhSqlQueryMap.getUpdateSmemberQuery());
+			pstmt.setString(1, _smvo.getSpw());
+			pstmt.setString(2, _smvo.getSname());
+			pstmt.setString(3, _smvo.getSbirth());
+			pstmt.setString(4, _smvo.getSgender());
+			pstmt.setString(5, _smvo.getShp());
+			pstmt.setString(6, _smvo.getSmail());
+			pstmt.setString(7, _smvo.getSpost());
+			pstmt.setString(8, _smvo.getSaddr());
+			pstmt.setString(9, _smvo.getSno());
+			
+			updateInt = pstmt.executeUpdate();
+			System.out.println("다오임플 정보수정 updateInt:" + updateInt);
+			
+			//db연결종료
+			SjhConnProperty.conClose(con, pstmt);
+			System.out.println("[log]정보수정 db연결종료");
+		}catch(Exception e){
+			System.out.println("[log]회원정보수정 db연결 에러 >>> " + e.getMessage());
+		}finally{
+			SjhConnProperty.conClose(con, pstmt);
+			System.out.println("[log]정보수정 db연결종료");
+		}// end of try-catch-finally
+		
+			if(updateInt==1){
+				updateBool = true;
+			}// end of if
+		System.out.println("[log]다오임플 updateSmember 함수 종료 >>> updateBool:" + updateBool);	
+		return updateBool;
+	}// end of 회원정보수정
+
+	// 회원탈퇴(delete)
+	@Override
+	// 회원탈퇴 delete
+	public Boolean deleteSmember(SmemberVO _smvo){
+		System.out.println("[log]다오임플 deleteSmember 함수 시작 >>>> 데이터확인 _smvo.getSno():" + _smvo.getSno());
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		Boolean deleteBool = false;
+		int deleteInt = 0;
+		
+		try{
+			con = SjhConnProperty.getConnection();
+			pstmt = con.prepareStatement(SjhSqlQueryMap.getDeleteSmemberQuery());
+			pstmt.setString(1, _smvo.getSno());
+			
+			deleteInt = pstmt.executeUpdate();
+			System.out.println("다오임플 회원탈퇴 deleteInt:" + deleteInt);
+			
+			//db연결종료
+			SjhConnProperty.conClose(con, pstmt);
+			System.out.println("[log]회원탈퇴 db연결종료");
+		}catch(Exception e){
+			System.out.println("[log]회원탈퇴 db연결 에러 >>> " + e.getMessage());
+		}finally{
+			SjhConnProperty.conClose(con, pstmt);
+			System.out.println("[log]회원탈퇴 db연결종료");
+		}// end of try-catch-finally
+		
+			if(deleteInt==1){
+				deleteBool = true;
+			}// end of if
+		System.out.println("[log]다오임플 deleteSmember 함수 종료 >>> deleteBool:" + deleteBool);	
+		return deleteBool;
+	}// end of 회원탈퇴
 }// end of SmemberDAOImpl

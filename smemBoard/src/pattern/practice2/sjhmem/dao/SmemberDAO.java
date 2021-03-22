@@ -14,5 +14,8 @@ public interface SmemberDAO {
 	public ArrayList<SmemberVO> selectAllSmember();
 	// 회원검색 search
 	public ArrayList<SmemberVO> searchSmember(SmemberVO _smvo);
-	
+	// 회원정보수정 update
+	public Boolean updateSmember(SmemberVO _smvo);
+	// 회원탈퇴 delete
+	public Boolean deleteSmember(SmemberVO _smvo);
 }// end of SmemberDAO

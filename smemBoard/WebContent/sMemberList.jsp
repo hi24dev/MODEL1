@@ -32,7 +32,19 @@
 		</script>
 	</head>
 	<body>
-		회원목록
+		<header style="display: table; /* 표시형태 */
+					   width: 100%; /* 너비 */
+					   height: 1.8; /* 높이 */
+					   border-top: 28px solid #2A293E; /* Evening Blue */
+					   border-bottom: 28px solid #2A293E; /* Evening Blue */ 
+					   background: white; /* 배경색 */
+					   font-size: 1.2em;
+					   color: #2A293E; /* 글자색 */
+					   text-align: center; /* 글자의 수평위치 */
+					   vertical-align: middle; /* 글자의 수직위치 */">
+			<h1><a href="/sMain.html">EXTREME LANDSCAPES</a></h1>
+		</header>
+		<p>회원목록</p>
 		<table border="1">
 			<tr>
 				<td><input type="checkbox" disabled></td>
@@ -52,26 +64,37 @@
 				ArrayList<SmemberVO> smemberArray = smdao.selectAllSmember();
 				System.out.println("sMemberList.jsp >>> 데이터확인 smemberArray길이 : " + smemberArray.size());
 				
-				SmemberVO svo = null;
-
-				for(int i=0;i<smemberArray.size();i++){
-					svo = new SmemberVO();
-					svo = smemberArray.get(i);
-				%>
+				// null체크
+				if(smemberArray.size()==0){
+				%>		
 					<tr>
 						<td><input type="checkbox"></td>
-						<td><%=svo.getSno() %></td>
-						<td><%=svo.getSsid() %></td>
-						<td><%=svo.getSname() %></td>
-						<td><%=svo.getSbirth() %></td>
-						<td><%=svo.getSgender() %></td>
-						<td><%=svo.getShp() %></td>
-						<td><%=svo.getSmail() %></td>
-						<td><%=svo.getSpost() %></td>
-						<td><%=svo.getSaddr() %></td>
+						<td colspan="9">no data</td>
 					</tr>
-				<%
-				}// end of for
+				<%		
+				}else{
+					SmemberVO svo = null;
+	
+					for(int i=0;i<smemberArray.size();i++){
+						svo = new SmemberVO();
+						svo = smemberArray.get(i);
+					%>
+						<tr>
+							<td><input type="checkbox"></td>
+							<td><%=svo.getSno() %></td>
+							<td><%=svo.getSsid() %></td>
+							<td><%=svo.getSname() %></td>
+							<td><%=svo.getSbirth() %></td>
+							<td><%=svo.getSgender() %></td>
+							<td><%=svo.getShp() %></td>
+							<td><%=svo.getSmail() %></td>
+							<td><%=svo.getSpost() %></td>
+							<td><%=svo.getSaddr() %></td>
+						</tr>
+					<%
+					}// end of for
+					
+				}// end of if-else
 			%>
 		</table>
 		<form name="searchForm"
