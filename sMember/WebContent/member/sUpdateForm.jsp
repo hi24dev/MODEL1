@@ -68,7 +68,7 @@
 					}// end of if
 					
 					console.log('ºóÄ­Ã¼Å© Åë°ú');
-					document.updateForm.action="/sUpdate.jsp";
+					document.updateForm.action="/member/sUpdate.jsp";
 					document.updateForm.submit();
 				}// end of if
 			}// end of click_btn

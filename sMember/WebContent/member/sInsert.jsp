@@ -52,7 +52,7 @@
 		<script>
 		console.log('회원가입 실패');
 		alert("회원가입에 실패했습니다.\n다시 시도해주세요!");
-		location.href="/sInsertForm.html";
+		location.href="/member/sInsertForm.html";
 		</script>
 <%		
 	}// end of if-else

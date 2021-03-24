@@ -16,7 +16,7 @@
 			function click_btn(actionVal){
 				if(actionVal=="I"){
 					console.log('입력버튼 클릭! >>> actionVal:' + actionVal);
-					document.searchForm.action="/sInsertForm.html";
+					document.searchForm.action="/member/sInsertForm.html";
 					document.searchForm.submit();
 				}
 				if(actionVal=="S"){
@@ -31,7 +31,7 @@
 					}// end of if
 					
 					// form데이터 전송
-					document.searchForm.action="/sSelect.jsp";
+					document.searchForm.action="/member/sSelect.jsp";
 					document.searchForm.submit();
 				}
 				if(actionVal=="U"){
@@ -45,7 +45,7 @@
 
 					console.log('수정버튼 클릭! >>> actionVal:' + actionVal
 											+ "\n>>>회원번호: "+ document.getElementById('searchKeyword').value);
-					document.searchForm.action="/sUpdateForm.jsp";
+					document.searchForm.action="/member/sUpdateForm.jsp";
 					document.searchForm.submit();
 				}
 				if(actionVal=="D"){
@@ -59,7 +59,7 @@
 
 					console.log('탈퇴버튼 클릭! >>> actionVal:' + actionVal
 											+ "\n>>>회원번호: "+ document.getElementById('searchKeyword').value);
-					document.searchForm.action="/sDelete.jsp";
+					document.searchForm.action="/member/sDelete.jsp";
 					document.searchForm.submit();
 				}
 			}// end of click_btn()

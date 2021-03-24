@@ -24,14 +24,14 @@
 	%>
 		<script>
 			alert('회원탈퇴가 완료되었습니다.');
-			location.href="/sSelectAll.jsp";
+			location.href="/member/sSelectAll.jsp";
 		</script>
 	<%
 	}else{
 	%>
 		<script>
 			alert('회원탈퇴에 실패했습니다.');
-			location.href="/sSelectAll.jsp";
+			location.href="/member/sSelectAll.jsp";
 		</script>		
 	<%
 	}// end of if-else

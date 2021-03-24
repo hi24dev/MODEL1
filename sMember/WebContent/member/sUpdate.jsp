@@ -43,7 +43,7 @@
 		<script>
 		// console.log('수정완료 updateBool:' + updateBool);
 		alert('회원정보가 저장되었습니다.');	
-		location.href="/sSelect.jsp?sno="+"<%=snoVal%>";
+		location.href="/member/sSelect.jsp?sno="+"<%=snoVal%>";
 		</script>
 	<%
 	}else{
@@ -52,7 +52,7 @@
 		<script>
 		// console.log('수정실패 updateBool:' + updateBool);
 		alert('회원정보 수정에 실패했습니다.\n다시 시도하거나 관리자에게 문의해주시기 바랍니다.');	
-		location.href="/sUpdateForm.jsp";
+		location.href="/member/sUpdateForm.jsp";
 		</script>
 	<%	
 	}// end of if-else

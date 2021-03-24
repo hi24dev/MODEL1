@@ -35,7 +35,7 @@
 		// 로그인성공 팝업 (메인페이지 이동)
 		console.log("로그인 성공 >>> sno:" + "<%=loginSmemLogin.get(0).getSno()%>");
 		alert("로그인 성공");
-		location.href="/sSelectAll.jsp";
+		location.href="/member/sSelectAll.jsp";
 	</script>
 <%		
 	}else{

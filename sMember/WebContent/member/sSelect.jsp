@@ -32,14 +32,14 @@
 				// 수정
 				if(val=="U"){
 					console.log("수정 페이지 이동!");
-					document.updateForm.action="/sUpdateForm.jsp"
+					document.updateForm.action="/member/sUpdateForm.jsp"
 					document.updateForm.submit();
 				}// end of if
 				
 				// 탈퇴
 				if(val=="D"){
 					console.log("삭제 페이지 이동!");
-					document.updateForm.action="/sDelete.jsp"
+					document.updateForm.action="/member/sDelete.jsp"
 					document.updateForm.submit();
 				}// end of if
 				
