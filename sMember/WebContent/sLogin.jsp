@@ -7,6 +7,7 @@
 <%
 	request.setCharacterEncoding("EUC-KR");
 %>
+
 <%
 	// 데이터 가져오기 - getParameter("name")
 	String ssid = request.getParameter("ssid");
@@ -24,13 +25,17 @@
 	ArrayList<SmemberVO> loginSmemLogin = smdao.loginSmember(svo);
 	System.out.println("test:" + loginSmemLogin.size());
 	
+	// SmemberVO svo_ = loginSmemLogin.get(0);
 	
 	if(loginSmemLogin.size()==1){
+		// 로그인 세션
+		session.setAttribute("sno",loginSmemLogin.get(0).getSno());	
 %>		
 	<script>
 		// 로그인성공 팝업 (메인페이지 이동)
+		console.log("로그인 성공 >>> sno:" + "<%=loginSmemLogin.get(0).getSno()%>");
 		alert("로그인 성공");
-		location.href="/sMain.html";	
+		location.href="/sSelectAll.jsp";
 	</script>
 <%		
 	}else{

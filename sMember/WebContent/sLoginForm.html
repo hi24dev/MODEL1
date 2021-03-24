@@ -30,35 +30,29 @@
 		</script>
 	</head>
 	<body>
-		<header style="display: table; /* 표시형태 */
-					   width: 100%; /* 너비 */
-					   height: 1.8; /* 높이 */
-					   border-top: 28px solid #2A293E; /* Evening Blue */
-					   border-bottom: 28px solid #2A293E; /* Evening Blue */ 
-					   background: white; /* 배경색 */
-					   font-size: 1.2em;
-					   color: #2A293E; /* 글자색 */
-					   text-align: center; /* 글자의 수평위치 */
-					   vertical-align: middle; /* 글자의 수직위치 */">
-			<h1><a href="/sMain.html">EXTREME LANDSCAPES</a></h1>
-		</header>
-		<p>로그인</p>
 		<!-- 로그인 폼 -->
 		<form name="loginForm"
 			  method="post">
-			<table border="1">
+			<table border="1" align="center">
 				<tr>
-					<td>ID</td>
-					<td><input type="text" id="idVal" name="ssid"></td>
-					<td rowspan="2"><input type="button" id="login" value="로그인" onclick="loginCheck()"></td>
+					<td colspan="2" align="center">로그인</td>
 				</tr>
 				<tr>
-					<td>PW</td>
+					<td align="center">ID</td>
+					<td><input type="text" id="idVal" name="ssid"></td>
+				</tr>
+				<tr>
+					<td align="center">PW</td>
 					<td><input type="password" id="pwVal" name="spw"></td>
 				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="button" id="login" value="로그인" onclick="loginCheck()">
+						&nbsp;
+						<input type="reset" value="다시">
+					</td>
+				</tr>				
 			</table>
-			<a href="/sJoinForm.html">회원가입</a>
-			<a href="">회원목록</a>
 		</form>
 	</body>
 </html>

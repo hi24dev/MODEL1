@@ -6,11 +6,10 @@
 		<script type="text/javascript">
 			console.log("회원가입 페이지 script 시작!");
 			
-			// 빈칸체크 및 가입하기 버튼 클릭
-			function joinCheck(){
+			function click_btn(){
 				console.log('가입하기 버튼 클릭!');
 				
-				// 빈칸체크
+				console.log('빈칸체크 시작!');
 				console.log('id:' + document.getElementById('idVal').value);
 				if(!document.getElementById('idVal').value){
 					alert('id를 입력해주세요!');
@@ -48,72 +47,66 @@
 				}// end of if
 				
 				console.log('빈칸체크 통과');
-				// jsp로 폼데이터 이동
-				document.joinForm.action="/sJoin.jsp";
-				document.joinForm.submit();
-			}// end of click_btn
-			
+				document.insertForm.action="/sInsert.jsp";
+				document.insertForm.submit();
+			}// end of click_btn()
 			
 		</script>
 	</head>
 	<body>
-		<header style="display: table; /* 표시형태 */
-					   width: 100%; /* 너비 */
-					   height: 1.8; /* 높이 */
-					   border-top: 28px solid #2A293E; /* Evening Blue */
-					   border-bottom: 28px solid #2A293E; /* Evening Blue */ 
-					   background: white; /* 배경색 */
-					   font-size: 1.2em;
-					   color: #2A293E; /* 글자색 */
-					   text-align: center; /* 글자의 수평위치 */
-					   vertical-align: middle; /* 글자의 수직위치 */">
-			<h1><a href="/sMain.html">EXTREME LANDSCAPES</a></h1>
-		</header>
-		<p>회원가입</p>
-		<form name="joinForm"
+		<form name="insertForm"
 			  method="post">
-			<table border="1">
+			<table border="1" align="center">
 				<tr>
-					<td>*id</td>
-					<td><input type="text" id="idVal" name="ssid"></td>
+					<td colspan="2" align="center">
+						회원가입
+					</td>
 				</tr>
 				<tr>
-					<td>*pw</td>
+					<td width="100" align="center">*id</td>
+					<td width="250"><input type="text" id="idVal" name="ssid"></td>
+				</tr>
+				<tr>
+					<td align="center">*pw</td>
 					<td><input type="password" id="pwVal" name="spw"></td>
 				</tr>
 				<tr>
-					<td>*이름</td>
+					<td align="center">*이름</td>
 					<td><input type="text" id="nameVal" name="sname"></td>
 				</tr>
 				<tr>
-					<td>*생년월일</td>
+					<td align="center">*생년월일</td>
 					<td><input type="text" id="birthVal" name="sbirth" placeholder="19950101"></td>
 				</tr>
 				<tr>
-					<td>성별</td>
+					<td align="center">성별</td>
 					<td>
 						<input type="radio" id="" name="sgender" value="M">남자 
 						<input type="radio" id="" name="sgender" value="F">여자
 					</td>
 				</tr>
 				<tr>
-					<td>*연락처</td>
+					<td align="center">*연락처</td>
 					<td><input type="text" id="hpVal" name="shp" placeholder="01012345678"></td>
 				</tr>
 				<tr>
-					<td>메일</td>
+					<td align="center">메일</td>
 					<td><input type="text" name="smail" placeholder="example@gmail.com"></td>
 				</tr>
 				<tr>
-					<td>우편번호</td>
+					<td align="center">우편번호</td>
 					<td><input type="text" name="spost" placeholder="01234"></td>
 				</tr>
 				<tr>
-					<td>주소</td>
+					<td align="center">주소</td>
 					<td><input type="text" name="saddr"></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="button" value="가입하기" onclick="joinCheck()"></td>
+					<td colspan="2" align="center">
+						<input type="button" value="가입하기" onclick="click_btn()">
+						&nbsp;
+						<input type="reset" value="다시">
+					</td>
 				</tr>
 			</table>
 		</form>

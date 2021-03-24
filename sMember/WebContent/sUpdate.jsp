@@ -43,7 +43,7 @@
 		<script>
 		// console.log('수정완료 updateBool:' + updateBool);
 		alert('회원정보가 저장되었습니다.');	
-		location.href="/sMemberList.jsp";
+		location.href="/sSelect.jsp?sno="+"<%=snoVal%>";
 		</script>
 	<%
 	}else{

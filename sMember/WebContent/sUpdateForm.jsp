@@ -75,7 +75,6 @@
 		</script>
 	</head>
 	<body>
-		회원정보수정
 	<%
 		//dao
 		SmemberDAO smdao = new SmemberDAOImpl();
@@ -103,33 +102,36 @@
 	%>
 		<form name="updateForm"
 			  method="post">
-			<table border="1">
+			<table border="1" align="center">
 				<tr>
-					<td>회원번호</td>
-					<td><input type="text" value="<%=smvo.getSno() %>" disabled></td>
+					<td colspan="2" align="center">회원정보수정</td>
 				</tr>
 				<tr>
-					<td>ID</td>
+					<td width="100" align="center">회원번호</td>
+					<td width="250"><input type="text" value="<%=smvo.getSno() %>" disabled></td>
+				</tr>
+				<tr>
+					<td align="center">ID</td>
 					<td><input type="text" value="<%=smvo.getSsid() %>" disabled></td>
 				</tr>
 				<tr>
-					<td>*PW</td>
+					<td align="center">*PW</td>
 					<td><input type="password" id="pwVal" name="spw"></td>
 				</tr>
 				<tr>
-					<td>*PW재확인</td>
+					<td align="center">*PW재확인</td>
 					<td><input type="password" id="pwVal1"></td>
 				</tr>
 				<tr>
-					<td>*이름</td>
+					<td align="center">*이름</td>
 					<td><input type="text" id="nameVal" name="sname" value="<%=smvo.getSname() %>"></td>
 				</tr>
 				<tr>
-					<td>*생년월일</td>
+					<td align="center">*생년월일</td>
 					<td><input type="text" id="birthVal" name="sbirth" value="<%=smvo.getSbirth() %>"></td>
 				</tr>
 				<tr>
-					<td>성별</td>
+					<td align="center">성별</td>
 					<td>
 					<%
 						System.out.println("sgender:" + smvo.getSgender());
@@ -145,35 +147,47 @@
 							<input type="radio" name="sgender" value="F" checked>여자
 					<%				
 						}
+						if(smvo.getSgender()==null){
+					%>		
+							<input type="radio" name="sgender" value="M">남자 
+							<input type="radio" name="sgender" value="F">여자
+					<%				
+						}
 					%>	
 					</td>
 				</tr>
 				<tr>
-					<td>*연락처</td>
+					<td align="center">*연락처</td>
 					<td><input type="text" id="hpVal" name="shp" value="<%=smvo.getShp() %>"></td>
 				</tr>
 				<tr>
-					<td>메일</td>
+					<td align="center">메일</td>
 					<td><input type="text" name="smail" value="<%=smvo.getSmail() %>"></td>
 				</tr>
 				<tr>
-					<td>우편번호</td>
+					<td align="center">우편번호</td>
 					<td><input type="text" name="spost" value="<%=smvo.getSpost() %>"></td>
 				</tr>
 				<tr>
-					<td>주소</td>
+					<td align="center">주소</td>
 					<td><input type="text" name="saddr" value="<%=smvo.getSaddr() %>"></td>
 				</tr>
 				<tr>
-					<td>가입일</td>
+					<td align="center">가입일</td>
 					<td><input type="text" value="<%=smvo.getSinsertdate() %>" disabled></td>
 				</tr>
 				<tr>
-					<td>정보수정일</td>
+					<td align="center">정보수정일</td>
 					<td><input type="text" value="<%=smvo.getSupdatedate() %>" disabled></td>
 				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="button" value="수정완료" onclick="click_btn('update')">
+						&nbsp;
+						<input type="reset" value="다시">
+					</td>
+				</tr>
 			</table>
-			<input type="button" value="저장하기" onclick="click_btn('update')">
 			<input type="hidden" name="snoVal" value="<%=smvo.getSno()%>">
 		</form>
 	</body>

@@ -37,7 +37,7 @@
 	// dao 연결	
 	SmemberDAO smdao = new SmemberDAOImpl();
 	Boolean insertBool = smdao.insertSmember(svo);
-	System.out.println("sJoin.jsp >>> insertBool:" + insertBool);
+	System.out.println("sInsert.jsp >>> insertBool:" + insertBool);
 	
 	if(insertBool){
 %>	
@@ -52,7 +52,7 @@
 		<script>
 		console.log('회원가입 실패');
 		alert("회원가입에 실패했습니다.\n다시 시도해주세요!");
-		location.href="/sJoinForm.html";
+		location.href="/sInsertForm.html";
 		</script>
 <%		
 	}// end of if-else

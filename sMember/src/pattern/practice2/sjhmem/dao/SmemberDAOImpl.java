@@ -40,7 +40,7 @@ public class SmemberDAOImpl implements SmemberDAO {
 				
 				while(rsRs.next()){
 					smvo = new SmemberVO();
-					smvo.setSsid(rsRs.getString("sno"));
+					smvo.setSno(rsRs.getString("sno"));
 					aList.add(smvo);
 				}// end of while
 			}// end of if
