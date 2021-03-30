@@ -3,108 +3,122 @@
 	<head>
 		<meta charset="EUC-KR">
 		<title>회원가입</title>
+		<style type="text/css">
+			.tt{
+				text-align: center;
+				font-weight: bold;
+			}
+		</style>
 		<script type="text/javascript">
 			console.log("회원가입 페이지 script 시작!");
 			
-			function click_btn(){
-				console.log('가입하기 버튼 클릭!');
-				
-				console.log('빈칸체크 시작!');
-				console.log('id:' + document.getElementById('idVal').value);
-				if(!document.getElementById('idVal').value){
-					alert('id를 입력해주세요!');
-					document.getElementById('idVal').focus();
-					return;
-				}// end of if
-				console.log('pw:' + document.getElementById('pwVal').value);
-				if(!document.getElementById('pwVal').value){
-					alert('pw를 입력해주세요!');
-					document.getElementById('pwVal').focus();
-					return;
-				}// end of if
-				console.log('이름:' + document.getElementById('nameVal').value);
-				if(!document.getElementById('nameVal').value){
-					alert('이름을 입력해주세요!');
-					document.getElementById('nameVal').focus();
-					return;
-				}// end of if
-				console.log('생년월일:' + document.getElementById('birthVal').value);
-				if(!document.getElementById('birthVal').value){
-					alert('생년월일을 입력해주세요!');
-					document.getElementById('birthVal').focus();
-					return;
-				}// end of if
-				for(var i=0;i<document.getElementsByName('sgender').length;i++){
-					if(document.getElementsByName('sgender')[i].checked){
-						console.log('성별:' + document.getElementsByName('sgender')[i].value);
+			function click_btn(val){
+				// 가입하기
+				if(val=="I"){
+					console.log('가입하기 버튼 클릭!');
+					
+					console.log('빈칸체크 시작!');
+					console.log('id:' + document.getElementById('idVal').value);
+					if(!document.getElementById('idVal').value){
+						alert('id를 입력해주세요!');
+						document.getElementById('idVal').focus();
+						return;
 					}// end of if
-				}// end of for
-				console.log('연락처:' + document.getElementById('hpVal').value);
-				if(!document.getElementById('hpVal').value){
-					alert('연락처를 입력해주세요!');
-					document.getElementById('hpVal').focus();
-					return;
+					console.log('pw:' + document.getElementById('pwVal').value);
+					if(!document.getElementById('pwVal').value){
+						alert('pw를 입력해주세요!');
+						document.getElementById('pwVal').focus();
+						return;
+					}// end of if
+					console.log('이름:' + document.getElementById('nameVal').value);
+					if(!document.getElementById('nameVal').value){
+						alert('이름을 입력해주세요!');
+						document.getElementById('nameVal').focus();
+						return;
+					}// end of if
+					console.log('생년월일:' + document.getElementById('birthVal').value);
+					if(!document.getElementById('birthVal').value){
+						alert('생년월일을 입력해주세요!');
+						document.getElementById('birthVal').focus();
+						return;
+					}// end of if
+					for(var i=0;i<document.getElementsByName('sgender').length;i++){
+						if(document.getElementsByName('sgender')[i].checked){
+							console.log('성별:' + document.getElementsByName('sgender')[i].value);
+						}// end of if
+					}// end of for
+					console.log('연락처:' + document.getElementById('hpVal').value);
+					if(!document.getElementById('hpVal').value){
+						alert('연락처를 입력해주세요!');
+						document.getElementById('hpVal').focus();
+						return;
+					}// end of if
+					
+					console.log('빈칸체크 통과');
+					document.insertForm.action="/member/sInsert.jsp";
+					document.insertForm.submit();
+				}
+				// 전체조회
+				if(val=="SALL"){
+					console.log("전체조회 페이지 이동!");
+					document.insertForm.action="/member/sSelectAll.jsp"
+					document.insertForm.submit();
 				}// end of if
 				
-				console.log('빈칸체크 통과');
-				document.insertForm.action="/member/sInsert.jsp";
-				document.insertForm.submit();
+
 			}// end of click_btn()
 			
 		</script>
 	</head>
 	<body>
-		<form name="insertForm"
-			  method="post">
+		<form name="insertForm" method="post">
 			<table border="1" align="center">
 				<tr>
-					<td colspan="2" align="center">
-						회원가입
-					</td>
+					<td colspan="2" align="center"><h2>회원가입</h2></td>
 				</tr>
 				<tr>
-					<td width="100" align="center">*id</td>
+					<td width="100" class="tt">*id</td>
 					<td width="250"><input type="text" id="idVal" name="ssid"></td>
 				</tr>
 				<tr>
-					<td align="center">*pw</td>
+					<td class="tt">*pw</td>
 					<td><input type="password" id="pwVal" name="spw"></td>
 				</tr>
 				<tr>
-					<td align="center">*이름</td>
+					<td class="tt">*이름</td>
 					<td><input type="text" id="nameVal" name="sname"></td>
 				</tr>
 				<tr>
-					<td align="center">*생년월일</td>
+					<td class="tt">*생년월일</td>
 					<td><input type="text" id="birthVal" name="sbirth" placeholder="19950101"></td>
 				</tr>
 				<tr>
-					<td align="center">성별</td>
+					<td class="tt">성별</td>
 					<td>
 						<input type="radio" id="" name="sgender" value="M">남자 
 						<input type="radio" id="" name="sgender" value="F">여자
 					</td>
 				</tr>
 				<tr>
-					<td align="center">*연락처</td>
+					<td class="tt">*연락처</td>
 					<td><input type="text" id="hpVal" name="shp" placeholder="01012345678"></td>
 				</tr>
 				<tr>
-					<td align="center">메일</td>
+					<td class="tt">메일</td>
 					<td><input type="text" name="smail" placeholder="example@gmail.com"></td>
 				</tr>
 				<tr>
-					<td align="center">우편번호</td>
+					<td class="tt">우편번호</td>
 					<td><input type="text" name="spost" placeholder="01234"></td>
 				</tr>
 				<tr>
-					<td align="center">주소</td>
+					<td class="tt">주소</td>
 					<td><input type="text" name="saddr"></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
-						<input type="button" value="가입하기" onclick="click_btn()">
-						&nbsp;
+						<input type="button" value="가입하기" onclick="click_btn('I')">
+						<input type="button" value="글목록" onclick="click_btn('SALL')">
 						<input type="reset" value="다시">
 					</td>
 				</tr>

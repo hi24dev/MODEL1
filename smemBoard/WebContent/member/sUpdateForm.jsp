@@ -16,13 +16,19 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 		<title>회원정보수정</title>
+		<style type="text/css">
+			.tt{
+				text-align: center;
+				font-weight: bold;
+			}
+		</style>
 		<script type="text/javascript">
 			console.log('회원정보수정페이지 스트립트 시작!');
 			
 			function click_btn(val){
 				console.log("버튼클릭 함수 시작!");
 				
-				if(val=="update"){
+				if(val=="U"){
 					console.log('저장하기 버튼 클릭! 빈칸체크 시작 >>> ');
 					
 					// 빈칸체크
@@ -70,7 +76,14 @@
 					console.log('빈칸체크 통과');
 					document.updateForm.action="/member/sUpdate.jsp";
 					document.updateForm.submit();
-				}// end of if
+				}// end of if(U)
+				
+				// 전체조회
+				if(val=="SALL"){
+					console.log("전체조회 페이지 이동!");
+					document.updateForm.action="/member/sSelectAll.jsp"
+					document.updateForm.submit();
+				}// end of SALL
 			}// end of click_btn
 		</script>
 	</head>
@@ -104,34 +117,34 @@
 			  method="post">
 			<table border="1" align="center">
 				<tr>
-					<td colspan="2" align="center">회원정보수정</td>
+					<td colspan="2" align="center"><h2>회원정보수정</h2></td>
 				</tr>
 				<tr>
-					<td width="100" align="center">회원번호</td>
+					<td width="100" class="tt">회원번호</td>
 					<td width="250"><input type="text" value="<%=smvo.getSno() %>" disabled></td>
 				</tr>
 				<tr>
-					<td align="center">ID</td>
+					<td class="tt">ID</td>
 					<td><input type="text" value="<%=smvo.getSsid() %>" disabled></td>
 				</tr>
 				<tr>
-					<td align="center">*PW</td>
+					<td class="tt">*PW</td>
 					<td><input type="password" id="pwVal" name="spw"></td>
 				</tr>
 				<tr>
-					<td align="center">*PW재확인</td>
+					<td class="tt">*PW재확인</td>
 					<td><input type="password" id="pwVal1"></td>
 				</tr>
 				<tr>
-					<td align="center">*이름</td>
+					<td class="tt">*이름</td>
 					<td><input type="text" id="nameVal" name="sname" value="<%=smvo.getSname() %>"></td>
 				</tr>
 				<tr>
-					<td align="center">*생년월일</td>
+					<td class="tt">*생년월일</td>
 					<td><input type="text" id="birthVal" name="sbirth" value="<%=smvo.getSbirth() %>"></td>
 				</tr>
 				<tr>
-					<td align="center">성별</td>
+					<td class="tt">성별</td>
 					<td>
 					<%
 						System.out.println("sgender:" + smvo.getSgender());
@@ -157,34 +170,34 @@
 					</td>
 				</tr>
 				<tr>
-					<td align="center">*연락처</td>
+					<td class="tt">*연락처</td>
 					<td><input type="text" id="hpVal" name="shp" value="<%=smvo.getShp() %>"></td>
 				</tr>
 				<tr>
-					<td align="center">메일</td>
+					<td class="tt">메일</td>
 					<td><input type="text" name="smail" value="<%=smvo.getSmail() %>"></td>
 				</tr>
 				<tr>
-					<td align="center">우편번호</td>
+					<td class="tt">우편번호</td>
 					<td><input type="text" name="spost" value="<%=smvo.getSpost() %>"></td>
 				</tr>
 				<tr>
-					<td align="center">주소</td>
+					<td class="tt">주소</td>
 					<td><input type="text" name="saddr" value="<%=smvo.getSaddr() %>"></td>
 				</tr>
 				<tr>
-					<td align="center">가입일</td>
+					<td class="tt">가입일</td>
 					<td><input type="text" value="<%=smvo.getSinsertdate() %>" disabled></td>
 				</tr>
 				<tr>
-					<td align="center">정보수정일</td>
+					<td class="tt">정보수정일</td>
 					<td><input type="text" value="<%=smvo.getSupdatedate() %>" disabled></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
-						<input type="button" value="수정완료" onclick="click_btn('update')">
-						&nbsp;
+						<input type="button" value="수정완료" onclick="click_btn('U')">
 						<input type="reset" value="다시">
+						<input type="button" value="글목록" onclick="click_btn('SALL')">
 					</td>
 				</tr>
 			</table>

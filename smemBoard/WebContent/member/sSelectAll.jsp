@@ -9,6 +9,12 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 		<title>회원목록</title>
+		<style type="text/css">
+			.tt{
+				text-align: center;
+				font-weight: bold;
+			}
+		</style>
 		<script type="text/javascript">
 			console.log('[log]회원목록페이지 스크립트 시작!');
 			
@@ -79,19 +85,19 @@
 	<body>
 		<table border="1" align="center">
 			<tr>
-				<td colspan="10" align="center">회원전체조회</td>
+				<td colspan="10" align="center"><h2>회원전체조회</h2></td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" disabled></td>
-				<td align="center">회원번호</td>
-				<td align="center">ID</td>
-				<td align="center">이름</td>
-				<td align="center">생년월일</td>
-				<td align="center">성별</td>
-				<td align="center">연락처</td>
-				<td align="center">메일</td>
-				<td align="center">우편번호</td>
-				<td align="center">주소</td>
+				<td class="tt">회원번호</td>
+				<td class="tt">ID</td>
+				<td class="tt">이름</td>
+				<td class="tt">생년월일</td>
+				<td class="tt">성별</td>
+				<td class="tt">연락처</td>
+				<td class="tt">메일</td>
+				<td class="tt">우편번호</td>
+				<td class="tt">주소</td>
 			</tr>
 			<%
 				// select all dao vo

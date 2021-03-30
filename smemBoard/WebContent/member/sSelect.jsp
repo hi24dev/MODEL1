@@ -22,6 +22,12 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 		<title>회원정보</title>
+		<style type="text/css">
+			.tt{
+				text-align: center;
+				font-weight: bold;
+			}
+		</style>
 		<script type="text/javascript">
 			console.log('회원정보 페이지 스크립트 시작!');
 			
@@ -40,6 +46,13 @@
 				if(val=="D"){
 					console.log("삭제 페이지 이동!");
 					document.updateForm.action="/member/sDelete.jsp"
+					document.updateForm.submit();
+				}// end of if
+				
+				// 전체조회
+				if(val=="SALL"){
+					console.log("전체조회 페이지 이동!");
+					document.updateForm.action="/member/sSelectAll.jsp"
 					document.updateForm.submit();
 				}// end of if
 				
@@ -75,58 +88,58 @@
 	%>
 		<table border="1" align="center">
 			<tr>
-				<td colspan="2" align="center">회원조회</td>
+				<td colspan="2" align="center"><h2>회원조회</h2></td>
 			</tr>
 			<tr>
-				<td width="100" align="center">회원번호</td>
+				<td width="100" class="tt">회원번호</td>
 				<td width="250"><%=smvo.getSno() %></td>
 			</tr>
 			<tr>
-				<td align="center">ID</td>
+				<td class="tt">ID</td>
 				<td><%=smvo.getSsid() %></td>
 			</tr>
 			<tr>
-				<td align="center">이름</td>
+				<td class="tt">이름</td>
 				<td><%=smvo.getSname() %></td>
 			</tr>
 			<tr>
-				<td align="center">생년월일</td>
+				<td class="tt">생년월일</td>
 				<td><%=smvo.getSbirth() %></td>
 			</tr>
 			<tr>
-				<td align="center">성별</td>
+				<td class="tt">성별</td>
 				<td><%=smvo.getSgender() %></td>
 			</tr>
 			<tr>
-				<td align="center">연락처</td>
+				<td class="tt">연락처</td>
 				<td><%=smvo.getShp() %></td>
 			</tr>
 			<tr>
-				<td align="center">메일</td>
+				<td class="tt">메일</td>
 				<td><%=smvo.getSmail() %></td>
 			</tr>
 			<tr>
-				<td align="center">우편번호</td>
+				<td class="tt">우편번호</td>
 				<td><%=smvo.getSpost() %></td>
 			</tr>
 			<tr>
-				<td align="center">주소</td>
+				<td class="tt">주소</td>
 				<td><%=smvo.getSaddr() %></td>
 			</tr>
 			<tr>
-				<td align="center">가입일</td>
+				<td class="tt">가입일</td>
 				<td><%=smvo.getSinsertdate() %></td>
 			</tr>
 			<tr>
-				<td align="center">정보수정일</td>
+				<td class="tt">정보수정일</td>
 				<td><%=smvo.getSupdatedate() %></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
 				<form name="updateForm" method="post">
 					<input type="button" value="수정" onclick="click_btn('U')">
-					&nbsp;
 					<input type="button" value="탈퇴" onclick="click_btn('D')">
+					<input type="button" value="글목록" onclick="click_btn('SALL')">
 					<input type="hidden" name="snoVal" value="<%= smvo.getSno() %>">		
 				</form>
 				</td>
