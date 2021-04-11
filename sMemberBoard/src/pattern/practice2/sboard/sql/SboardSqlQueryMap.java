@@ -12,17 +12,17 @@ public abstract class SboardSqlQueryMap {
 		System.out.println("[log] SboardSqlQueryMap 전체조회 쿼리 함수 시작");
 		
 		StringBuffer sb = new StringBuffer();
-		sb.append("SELECT							");
-		sb.append("	 B.BNO          BNO				");
-		sb.append("	,B.BSUBJECT     BSUBJECT		");
-		sb.append("	,B.BNAME        BNAME			");
-		sb.append("	,B.BPW          BPW				");
-		sb.append("	,B.BMEMO        BMEMO			");
-		sb.append("	,B.BINSERTDATE  BINSERTDATE		");
-		sb.append("	,B.BUPDATEDATE  BUPDATEDATE		");
-		sb.append("FROM SBOARD_DATA  B				");
-		sb.append("WHERE B.BDELETEYN = 'N'			");
-		sb.append("ORDER BY B.BNO					");
+		sb.append("SELECT							\n");
+		sb.append("	 B.BNO          BNO				\n");
+		sb.append("	,B.BSUBJECT     BSUBJECT		\n");
+		sb.append("	,B.BNAME        BNAME			\n");
+		sb.append("	,B.BPW          BPW				\n");
+		sb.append("	,B.BMEMO        BMEMO			\n");
+		sb.append("	,B.BINSERTDATE  BINSERTDATE		\n");
+		sb.append("	,B.BUPDATEDATE  BUPDATEDATE		\n");
+		sb.append("FROM SBOARD_DATA  B				\n");
+		sb.append("WHERE B.BDELETEYN = 'N'			\n");
+		sb.append("ORDER BY B.BNO					\n");
 		
 		String resultStr = sb.toString();
 
@@ -35,24 +35,24 @@ public abstract class SboardSqlQueryMap {
 		System.out.println("[log] SboardSqlQueryMap 글작성 쿼리 함수 시작");
 		
 		StringBuffer sb = new StringBuffer();
-		sb.append("INSERT INTO SBOARD_DATA(				");
-		sb.append(" 					 BNO			");
-		sb.append("						,BSUBJECT		");
-		sb.append("						,BNAME			");
-		sb.append("						,BPW			");
-		sb.append("						,BMEMO			");
-		sb.append("						,BINSERTDATE	");
-		sb.append("						,BUPDATEDATE	");
-		sb.append("						,BDELETEYN		");
-		sb.append("			)VALUES(					");   
-		sb.append("					 ?					");
-		sb.append("					,?					");
-		sb.append("					,?					");
-		sb.append("					,?					");
-		sb.append("					,?					");
-		sb.append("					,SYSDATE			");
-		sb.append("					,SYSDATE			");
-		sb.append("					,'N')				");
+		sb.append("INSERT INTO SBOARD_DATA(				\n");
+		sb.append(" 					 BNO			\n");
+		sb.append("						,BSUBJECT		\n");
+		sb.append("						,BNAME			\n");
+		sb.append("						,BPW			\n");
+		sb.append("						,BMEMO			\n");
+		sb.append("						,BINSERTDATE	\n");
+		sb.append("						,BUPDATEDATE	\n");
+		sb.append("						,BDELETEYN		\n");
+		sb.append("			)VALUES(					\n");   
+		sb.append("					 ?					\n");
+		sb.append("					,?					\n");
+		sb.append("					,?					\n");
+		sb.append("					,?					\n");
+		sb.append("					,?					\n");
+		sb.append("					,SYSDATE			\n");
+		sb.append("					,SYSDATE			\n");
+		sb.append("					,'N')				\n");
 		
 		String strResult = sb.toString();
 		System.out.println("[log] SboardSqlQueryMap 글작성 쿼리 함수 끝");
@@ -64,18 +64,18 @@ public abstract class SboardSqlQueryMap {
 		System.out.println("[log] SboardSqlQueryMap 글조회쿼리 시작");
 		
 		StringBuffer sb = new StringBuffer();
-		sb.append("SELECT							");
-		sb.append("	 B.BNO          BNO				");
-		sb.append("	,B.BSUBJECT     BSUBJECT		");
-		sb.append("	,B.BNAME        BNAME			");
-		sb.append("	,B.BPW       	BPW				");
-		sb.append("	,B.BMEMO        BMEMO			");
-		sb.append("	,B.BINSERTDATE  BINSERTDATE		");
-		sb.append("	,B.BUPDATEDATE  BUPDATEDATE		");
-		sb.append("FROM SBOARD_DATA  B				");
-		sb.append("WHERE B.BNO = ?					");
-		sb.append("AND B.BDELETEYN = 'N'			");
-		sb.append("ORDER BY B.BNO					");
+		sb.append("SELECT							\n");
+		sb.append("	 B.BNO          BNO				\n");
+		sb.append("	,B.BSUBJECT     BSUBJECT		\n");
+		sb.append("	,B.BNAME        BNAME			\n");
+		sb.append("	,B.BPW       	BPW				\n");
+		sb.append("	,B.BMEMO        BMEMO			\n");
+		sb.append("	,B.BINSERTDATE  BINSERTDATE		\n");
+		sb.append("	,B.BUPDATEDATE  BUPDATEDATE		\n");
+		sb.append("FROM SBOARD_DATA  B				\n");
+		sb.append("WHERE B.BNO = ?					\n");
+		sb.append("AND B.BDELETEYN = 'N'			\n");
+		sb.append("ORDER BY B.BNO					\n");
 		
 		String resultStr = sb.toString();
 
@@ -88,15 +88,15 @@ public abstract class SboardSqlQueryMap {
 		System.out.println("[log] SboardSqlQueryMap 글수정 쿼리 함수 시작");
 		
 		StringBuffer sb = new StringBuffer();
-		sb.append("UPDATE SBOARD_DATA    B			");
-		sb.append("SET								");
-		sb.append("	 	 B.BSUBJECT = ?				");
-		sb.append("		,B.BNAME = ?				");
-		sb.append("     ,B.BPW = ?					");
-		sb.append("     ,B.BMEMO = ?				");
-		sb.append("     ,B.BUPDATEDATE = SYSDATE	");
-		sb.append("WHERE B.BDELETEYN = 'N'			");
-		sb.append("AND   B.BNO = ?					");	
+		sb.append("UPDATE SBOARD_DATA    B			\n");
+		sb.append("SET								\n");
+		sb.append("	 	 B.BSUBJECT = ?				\n");
+		sb.append("		,B.BNAME = ?				\n");
+		sb.append("     ,B.BPW = ?					\n");
+		sb.append("     ,B.BMEMO = ?				\n");
+		sb.append("     ,B.BUPDATEDATE = SYSDATE	\n");
+		sb.append("WHERE B.BDELETEYN = 'N'			\n");
+		sb.append("AND   B.BNO = ?					\n");	
 		
 		String strResult = sb.toString();
 		System.out.println("[log] SboardSqlQueryMap 글수정 쿼리 함수 끝");
@@ -108,13 +108,13 @@ public abstract class SboardSqlQueryMap {
 		System.out.println("[log] SboardSqlQueryMap 글삭제 쿼리 함수 시작");
 		
 		StringBuffer sb = new StringBuffer();
-		sb.append("UPDATE SBOARD_DATA    B			");
-		sb.append("SET								");
-		sb.append("	 	 B.BDELETEYN = 'Y'			");
-		sb.append("     ,B.BUPDATEDATE = SYSDATE	");
-		sb.append("WHERE B.BDELETEYN = 'N'			");
-		sb.append("AND   B.BNO = ?					");
-		sb.append("AND   B.BPW = ?					");	
+		sb.append("UPDATE SBOARD_DATA    B			\n");
+		sb.append("SET								\n");
+		sb.append("	 	 B.BDELETEYN = 'Y'			\n");
+		sb.append("     ,B.BUPDATEDATE = SYSDATE	\n");
+		sb.append("WHERE B.BDELETEYN = 'N'			\n");
+		sb.append("AND   B.BNO = ?					\n");
+		sb.append("AND   B.BPW = ?					\n");	
 		
 		String strResult = sb.toString();
 		System.out.println("[log] SboardSqlQueryMap 글삭제 쿼리 함수 끝");

@@ -47,7 +47,7 @@ public abstract class SjhConnProperty {
 		System.out.println("[log] conClose(con,pstmt,rsRs) ÇÔ¼ö ³¡ ");
 	}// end of conClose(con,pstmt,rsRs)
 	
-	// sql²÷±â conClose(con,pstmt,rsRs)
+	// sql²÷±â conClose(con,pstmt)
 	public static void conClose( Connection con
 								,PreparedStatement pstmt){
 		System.out.println("[log] pattern.practice2.sjhmem.common.SjhConnPropertyÅ¬·¡½º"

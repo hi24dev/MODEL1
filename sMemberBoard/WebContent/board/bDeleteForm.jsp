@@ -40,6 +40,12 @@
 			function click_btn(val){
 				if(val=="D"){
 					console.log('삭제버튼 클릭!');
+					// 빈칸체크
+					if(!document.getElementById('pwVal').value){
+						alert('pw를 입력해주세요!');
+						document.getElementById('pwVal').focus();
+						return;
+					}// end of if
 					document.deleteForm.action="/board/bDelete.jsp";
 					document.deleteForm.submit();
 				}// end of D
