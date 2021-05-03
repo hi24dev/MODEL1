@@ -4,10 +4,8 @@
 		<meta charset="EUC-KR">
 		<title>회원가입</title>
 		<style type="text/css">
-			.tt{
-				text-align: center;
-				font-weight: bold;
-			}
+			.tt{ text-align: center;
+				 font-weight: bold; }
 		</style>
 		<script type="text/javascript">
 			console.log("회원가입 페이지 script 시작!");
@@ -17,26 +15,21 @@
 				if(val=="I"){
 					console.log('가입하기 버튼 클릭!');
 					
-					console.log('빈칸체크 시작!');
-					console.log('id:' + document.getElementById('idVal').value);
 					if(!document.getElementById('idVal').value){
 						alert('id를 입력해주세요!');
 						document.getElementById('idVal').focus();
 						return;
 					}// end of if
-					console.log('pw:' + document.getElementById('pwVal').value);
 					if(!document.getElementById('pwVal').value){
 						alert('pw를 입력해주세요!');
 						document.getElementById('pwVal').focus();
 						return;
 					}// end of if
-					console.log('이름:' + document.getElementById('nameVal').value);
 					if(!document.getElementById('nameVal').value){
 						alert('이름을 입력해주세요!');
 						document.getElementById('nameVal').focus();
 						return;
 					}// end of if
-					console.log('생년월일:' + document.getElementById('birthVal').value);
 					if(!document.getElementById('birthVal').value){
 						alert('생년월일을 입력해주세요!');
 						document.getElementById('birthVal').focus();
@@ -47,7 +40,6 @@
 							console.log('성별:' + document.getElementsByName('sgender')[i].value);
 						}// end of if
 					}// end of for
-					console.log('연락처:' + document.getElementById('hpVal').value);
 					if(!document.getElementById('hpVal').value){
 						alert('연락처를 입력해주세요!');
 						document.getElementById('hpVal').focus();
@@ -64,8 +56,6 @@
 					document.insertForm.action="/member/sSelectAll.jsp"
 					document.insertForm.submit();
 				}// end of if
-				
-
 			}// end of click_btn()
 			
 		</script>

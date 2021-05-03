@@ -7,7 +7,6 @@
 <%
 	request.setCharacterEncoding("EUC-KR");
 %>
-
 <%
 	// 데이터 가져오기 - getParameter("name")
 	String ssid = request.getParameter("ssid");
@@ -46,9 +45,7 @@
 		location.href="/sLoginForm.html";
 	</script>
 	<%	
-	
 	}// end of if-else
-		
 %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

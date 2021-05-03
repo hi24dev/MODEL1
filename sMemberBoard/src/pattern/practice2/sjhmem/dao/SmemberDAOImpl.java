@@ -166,7 +166,6 @@ public class SmemberDAOImpl implements SmemberDAO {
 
 	// 회원검색(search)
 	@Override
-	// 회원검색 search
 	public ArrayList<SmemberVO> searchSmember(SmemberVO _smvo){
 		System.out.println("[log]다오임플 searchSmember함수 호출 성공 >>> 데이터확인 sno:" + _smvo.getSno());
 		
@@ -265,7 +264,6 @@ public class SmemberDAOImpl implements SmemberDAO {
 
 	// 회원탈퇴(delete)
 	@Override
-	// 회원탈퇴 delete
 	public Boolean deleteSmember(SmemberVO _smvo){
 		System.out.println("[log]다오임플 deleteSmember 함수 시작 >>>> 데이터확인 _smvo.getSno():" + _smvo.getSno());
 

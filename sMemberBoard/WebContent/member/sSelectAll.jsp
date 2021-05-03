@@ -137,8 +137,7 @@
 					%>
 						<tr>
 							<td colspan="10">
-								<form name="searchForm"
-								  	  method="POST">		
+								<form name="searchForm" method="POST">		
 									<input type="text" id="searchKeyword" name="snoVal" placeholder="회원번호 입력란"  width="250">
 									<input type="button" value="입력" onclick="click_btn('I')">
 									<input type="button" value="조회" onclick="click_btn('S')">
@@ -153,7 +152,5 @@
 				}// end of if-else
 			%>
 		</table>
-
-
 	</body>
 </html>

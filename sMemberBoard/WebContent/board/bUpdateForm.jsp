@@ -78,7 +78,6 @@
 					document.updateForm.submit();
 				}// end of SALL
 			}// end of click_btn
-		
 		</script>
 	</head>
 	<body>

@@ -62,7 +62,6 @@
 		<form name="selectForm" method="POST">
 			<table border="1" align="center">
 		<%
-			
 			if(aListSelect.size()==0){
 				System.out.println("데이터 조회 실패 >>> aListSelect.size():" + aListSelect.size());
 		%>		

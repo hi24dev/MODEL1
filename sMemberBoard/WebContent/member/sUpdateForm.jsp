@@ -17,10 +17,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 		<title>회원정보수정</title>
 		<style type="text/css">
-			.tt{
-				text-align: center;
-				font-weight: bold;
-			}
+			.tt{ text-align: center;
+				 font-weight: bold; }
 		</style>
 		<script type="text/javascript">
 			console.log('회원정보수정페이지 스트립트 시작!');

@@ -5,7 +5,6 @@
 <%@ page import="pattern.practice2.sjhmem.vo.SmemberVO" %> 
 <%@ page import="java.util.ArrayList" %>   
 <%
-
 	String snoVal = request.getParameter("snoVal");
 	System.out.println("sSelect.jsp >>> 폼 데이터확인 snoVal:" + snoVal);
 		
@@ -15,7 +14,6 @@
 		snoVal = (String)snoObj;
 		System.out.println("sSelect.jsp >>> 쿼리 데이터확인 snoVal:" + snoVal);
 	}
-
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -55,9 +53,7 @@
 					document.updateForm.action="/member/sSelectAll.jsp"
 					document.updateForm.submit();
 				}// end of if
-				
 			}// end of click_btn()
-			
 		</script>
 	</head>
 	<body>
